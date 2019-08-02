@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Images/Modular Characters/Person/GrSkin/Leg_White.png" type="Texture" id=1]
+
+
+[node name="Leg" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, 35 )
