@@ -10,15 +10,6 @@ var eyeTextures = [
 	preload("res://Images/Modular Characters/Person/GrEyes/Eye_Sad.png")
 ]
 
-#var eyeTextures = {
-#	Angry = preload("res://Images/Modular Characters/Person/GrEyes/Eye_Angry.png"),
-#	Excited = preload("res://Images/Modular Characters/Person/GrEyes/Eye_Excited.png"),
-#	Furious = preload("res://Images/Modular Characters/Person/GrEyes/Eye_Furious.png"),
-#	MidOpen = preload("res://Images/Modular Characters/Person/GrEyes/Eye_MidOpen.png"),
-#	Open = preload("res://Images/Modular Characters/Person/GrEyes/Eye_Open.png"),
-#	Sad = preload("res://Images/Modular Characters/Person/GrEyes/Eye_Sad.png")
-#}
-
 export(bool) onready var rightEye:bool = false setget set_right_eye,is_right_eye
 func set_right_eye(isRight:bool):
 	rightEye = isRight

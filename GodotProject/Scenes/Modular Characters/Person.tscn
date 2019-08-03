@@ -62,13 +62,20 @@ position = Vector2( 0, -150 )
 [node name="LeftEye" parent="Groin/Body/Head" instance=ExtResource( 8 )]
 position = Vector2( -70, -130 )
 eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
+irisPosition = Vector2( 0, 1 )
 
 [node name="RightEye" parent="Groin/Body/Head" instance=ExtResource( 8 )]
 position = Vector2( 70, -130 )
+rightEye = true
 eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
+irisPosition = Vector2( 0, 1 )
 
 [node name="Mouth" parent="Groin/Body/Head" instance=ExtResource( 9 )]
 position = Vector2( 0, -50 )
+mouthShape = 12
+
+[node name="EyeFocus" type="Node2D" parent="Groin/Body/Head"]
+position = Vector2( 0, -130 )
 
 [node name="LeftLeg" parent="Groin" instance=ExtResource( 10 )]
 editor/display_folded = true

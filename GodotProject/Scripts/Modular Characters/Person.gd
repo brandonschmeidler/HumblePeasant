@@ -30,7 +30,19 @@ func set_eye_color(color:Color):
 func get_eye_color():
 	return eyeColor
 
-export(enums.PersonEmotion) onready var emotion:int = enums.PersonEmotion.Neutral setget set_emotion,get_emotion
+export(NodePath) onready var eyeTarget:NodePath setget set_eye_target,get_eye_target
+func set_eye_target(targetPath:NodePath):
+	eyeTarget = targetPath
+func get_eye_target():
+	return eyeTarget
+
+export(float) onready var eyeTargetMaxDistance:float = 500.0 setget set_eye_target_max_dist,get_eye_target_max_dist
+func set_eye_target_max_dist(dist:float):
+	eyeTargetMaxDistance = dist
+func get_eye_target_max_dist():
+	return eyeTargetMaxDistance
+
+export(enums.PersonEmotion) onready var emotion = enums.PersonEmotion.Neutral setget set_emotion,get_emotion
 func set_emotion(emote:int):
 	emotion = emote
 	var eyeExpression:int = enums.EyeTexture.Open
@@ -69,3 +81,19 @@ func _ready():
 	set_skin_color(skinColor)
 	set_eye_color(eyeColor)
 	set_emotion(emotion)
+	get_node("Groin/Body/Head/RightEye").set_right_eye(true)
+
+func _process(delta):
+	var target = get_node_or_null(get_eye_target())
+	if (target != null):
+		var pos:Vector2 = get_node("Groin/Body/Head/EyeFocus").get_global_transform().get_origin()
+		var tpos:Vector2 = target.get_global_transform().get_origin()
+		var diff:Vector2 = tpos - pos
+		var dist:float = diff.length()
+		var maxDist:float = get_eye_target_max_dist()
+		if (dist <= maxDist):
+			diff = diff.normalized() * (dist / maxDist)
+		else:
+			diff = Vector2.ZERO
+		get_node("Groin/Body/Head/LeftEye").set_iris_position(diff)
+		get_node("Groin/Body/Head/RightEye").set_iris_position(diff)
