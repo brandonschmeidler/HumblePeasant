@@ -1,6 +1,8 @@
 tool
 extends Node2D
 
+var Person = get_script()
+
 export(Color) onready var skinColor:Color = Color("#ffffe0bd") setget set_skin_color,get_skin_color
 func set_skin_color(color:Color):
 	skinColor = color
@@ -42,6 +44,25 @@ func set_eye_target_max_dist(dist:float):
 func get_eye_target_max_dist():
 	return eyeTargetMaxDistance
 
+func update_iris_position():
+	var target:Node2D = get_node_or_null(get_eye_target())
+	if (target != null):
+		var pos:Vector2 = get_node("Groin/Body/Head/EyeFocus").get_global_transform().get_origin()
+		var tpos:Vector2 = Vector2.ZERO
+		if (target is Person):
+			tpos = target.get_node("Groin/Body/Head/EyeFocus").get_global_transform().get_origin()
+		else:
+			tpos = target.get_global_transform().get_origin()
+		var diff:Vector2 = tpos - pos
+		var dist:float = diff.length()
+		var maxDist:float = get_eye_target_max_dist()
+		if (dist <= maxDist):
+			diff = diff.normalized() * (dist / maxDist)
+		else:
+			diff = Vector2.ZERO
+		get_node("Groin/Body/Head/LeftEye").set_iris_position(diff)
+		get_node("Groin/Body/Head/RightEye").set_iris_position(diff)
+
 export(enums.PersonEmotion) onready var emotion = enums.PersonEmotion.Neutral setget set_emotion,get_emotion
 func set_emotion(emote:int):
 	emotion = emote
@@ -60,40 +81,24 @@ func set_emotion(emote:int):
 			irisPos.y = 0.3
 		enums.PersonEmotion.Happy:
 			mouthShape = enums.MouthTexture.Smile
-		enums.PersonEmotion.Jizz:
-			eyeExpression = enums.EyeTexture.Excited
-			mouthShape = enums.MouthTexture.FV
-			irisPos.y = -0.5
 		enums.PersonEmotion.Neutral:
 			pass
 	
 	var leftEye = get_node("Groin/Body/Head/LeftEye")
 	var rightEye = get_node("Groin/Body/Head/RightEye")
 	leftEye.set_expression(eyeExpression)
-	leftEye.set_iris_position(irisPos)
+	#leftEye.set_iris_position(irisPos)
 	rightEye.set_expression(eyeExpression)
-	rightEye.set_iris_position(Vector2(-irisPos.x,irisPos.y))
+	#rightEye.set_iris_position(Vector2(-irisPos.x,irisPos.y))
 	get_node("Groin/Body/Head/Mouth").set_mouth_shape(mouthShape)
 func get_emotion():
 	return emotion
 
 func _ready():
-	set_skin_color(skinColor)
-	set_eye_color(eyeColor)
-	set_emotion(emotion)
+	#set_skin_color(skinColor)
+	#set_eye_color(eyeColor)
+	#set_emotion(emotion)
 	get_node("Groin/Body/Head/RightEye").set_right_eye(true)
 
 func _process(delta):
-	var target = get_node_or_null(get_eye_target())
-	if (target != null):
-		var pos:Vector2 = get_node("Groin/Body/Head/EyeFocus").get_global_transform().get_origin()
-		var tpos:Vector2 = target.get_global_transform().get_origin()
-		var diff:Vector2 = tpos - pos
-		var dist:float = diff.length()
-		var maxDist:float = get_eye_target_max_dist()
-		if (dist <= maxDist):
-			diff = diff.normalized() * (dist / maxDist)
-		else:
-			diff = Vector2.ZERO
-		get_node("Groin/Body/Head/LeftEye").set_iris_position(diff)
-		get_node("Groin/Body/Head/RightEye").set_iris_position(diff)
+	update_iris_position()

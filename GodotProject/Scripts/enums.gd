@@ -1,7 +1,7 @@
 extends Node
 
 enum EyeTexture {
-	Angry,Excited,Furious,MidOpen,Open,Sad
+	Angry,Furious,Open,OpenHalf
 }
 
 enum MouthTexture {
@@ -9,5 +9,5 @@ enum MouthTexture {
 }
 
 enum PersonEmotion {
-	Angry,Evil,Happy,Neutral,Jizz
+	Angry,Evil,Happy,Neutral
 }

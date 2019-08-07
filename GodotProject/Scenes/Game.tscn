@@ -4,9 +4,21 @@
 
 [node name="Game" type="Node"]
 
-[node name="Person" parent="." instance=ExtResource( 1 )]
-position = Vector2( 442.047, 670.652 )
-eyeTarget = NodePath("../Node2D")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 210.971, 138.797 )
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 690.48, 199.446 )
+[node name="Person" parent="." instance=ExtResource( 1 )]
+position = Vector2( -152.401, 449.589 )
+skinColor = Color( 1, 0.878431, 0.741176, 1 )
+eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
+eyeTarget = NodePath("../Person2")
+eyeTargetMaxDistance = 500.0
+emotion = 3
+
+[node name="Person2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 554.656, 466.791 )
+skinColor = Color( 1, 0.878431, 0.741176, 1 )
+eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
+eyeTarget = NodePath("../Person")
+eyeTargetMaxDistance = 500.0
+emotion = 3
