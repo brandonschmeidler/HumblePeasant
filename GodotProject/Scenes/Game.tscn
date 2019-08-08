@@ -1,24 +1,6 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/Modular Characters/Person.tscn" type="PackedScene" id=1]
+[gd_scene format=2]
 
 [node name="Game" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 210.971, 138.797 )
-
-[node name="Person" parent="." instance=ExtResource( 1 )]
-position = Vector2( -152.401, 449.589 )
-skinColor = Color( 1, 0.878431, 0.741176, 1 )
-eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
-eyeTarget = NodePath("../Person2")
-eyeTargetMaxDistance = 500.0
-emotion = 3
-
-[node name="Person2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 554.656, 466.791 )
-skinColor = Color( 1, 0.878431, 0.741176, 1 )
-eyeColor = Color( 0.423529, 0.647059, 0.501961, 1 )
-eyeTarget = NodePath("../Person")
-eyeTargetMaxDistance = 500.0
-emotion = 3
+anchor_mode = 0

@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/Modular Characters/Eye.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Eye.shader" type="Shader" id=2]
-[ext_resource path="res://Images/New Modular Character Parts/Eye/Iris.png" type="Texture" id=3]
-[ext_resource path="res://Images/New Modular Character Parts/Eye/EyeOpen.png" type="Texture" id=4]
+[ext_resource path="res://Images/Modular Character Parts/Eye/Iris.png" type="Texture" id=3]
+[ext_resource path="res://Images/Modular Character Parts/Eye/Open.png" type="Texture" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/irisPosition = Vector2( 0, 0 )
-shader_param/irisColor = Color( 1, 1, 1, 1 )
+shader_param/irisColor = Color( 0.68, 1, 0.18, 1 )
 shader_param/irisTexture = ExtResource( 3 )
 
 [node name="Eye" type="Node2D"]

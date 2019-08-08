@@ -2,21 +2,21 @@ tool
 extends Node2D
 
 var mouthTextures = [
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthEmotions/Mouth_Angry_Teeth.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthEmotions/Mouth_Frown.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthEmotions/Mouth_Scared.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthEmotions/Mouth_Smile.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthEmotions/Mouth_Smile_Teeth.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/AI.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/E.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/etc.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/FV.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/L.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/MBP.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/O.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/Rest.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/U.png"),
-	preload("res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/WQ.png")
+	preload("res://Images/Modular Character Parts/Mouth/Emotions/AngryTeeth.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Emotions/Frown.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Emotions/Scared.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Emotions/Smile.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Emotions/SmileTeeth.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/AI.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/E.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/etc.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/FV.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/L.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/MBP.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/O.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/Rest.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/U.png"),
+	preload("res://Images/Modular Character Parts/Mouth/Phonemes/WQ.png")
 ]
 
 export(enums.MouthTexture) onready var mouthShape:int = enums.MouthTexture.Rest setget set_mouth_shape,get_mouth_shape

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Modular Characters/Mouth.gd" type="Script" id=1]
-[ext_resource path="res://Images/Modular Characters/Person/GrMouths/GrMouthPhenomes/Rest.png" type="Texture" id=2]
+[ext_resource path="res://Images/Modular Character Parts/Mouth/Phonemes/Rest.png" type="Texture" id=2]
 
 [node name="Mouth" type="Node2D"]
 script = ExtResource( 1 )

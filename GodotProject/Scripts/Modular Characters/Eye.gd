@@ -1,13 +1,15 @@
 tool extends Node2D
 
 var eyeTextures = [
-	preload("res://Images/New Modular Character Parts/Eye/EyeAngry.png"),
-	preload("res://Images/New Modular Character Parts/Eye/EyeFurious.png"),
-	preload("res://Images/New Modular Character Parts/Eye/EyeOpen.png"),
-	preload("res://Images/New Modular Character Parts/Eye/EyeOpenHalf.png")
+	preload("res://Images/Modular Character Parts/Eye/Angry.png"),
+	preload("res://Images/Modular Character Parts/Eye/Furious.png"),
+	preload("res://Images/Modular Character Parts/Eye/Open.png"),
+	preload("res://Images/Modular Character Parts/Eye/OpenHalf.png"),
+	preload("res://Images/Modular Character Parts/Eye/Squint.png"),
+	preload("res://Images/Modular Character Parts/Eye/SquintHalf.png")
 ]
 
-var irisTexture = preload("res://Images/New Modular Character Parts/Eye/Iris.png")
+var irisTexture = preload("res://Images/Modular Character Parts/Eye/Iris.png")
 
 export(enums.EyeTexture) onready var expression:int = enums.EyeTexture.Open setget set_expression,get_expression
 func set_expression(expr:int):

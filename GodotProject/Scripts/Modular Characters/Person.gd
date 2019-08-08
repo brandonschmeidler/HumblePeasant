@@ -63,41 +63,26 @@ func update_iris_position():
 		get_node("Groin/Body/Head/LeftEye").set_iris_position(diff)
 		get_node("Groin/Body/Head/RightEye").set_iris_position(diff)
 
-export(enums.PersonEmotion) onready var emotion = enums.PersonEmotion.Neutral setget set_emotion,get_emotion
-func set_emotion(emote:int):
-	emotion = emote
-	var eyeExpression:int = enums.EyeTexture.Open
-	var mouthShape:int = enums.MouthTexture.Rest
-	var irisPos:Vector2 = Vector2.ZERO
-	
-	match emotion:
-		enums.PersonEmotion.Angry:
-			eyeExpression = enums.EyeTexture.Furious
-			mouthShape = enums.MouthTexture.AngryTeeth
-			irisPos.x = 0.4
-		enums.PersonEmotion.Evil:
-			eyeExpression = enums.EyeTexture.Angry
-			mouthShape = enums.MouthTexture.SmileTeeth
-			irisPos.y = 0.3
-		enums.PersonEmotion.Happy:
-			mouthShape = enums.MouthTexture.Smile
-		enums.PersonEmotion.Neutral:
-			pass
-	
-	var leftEye = get_node("Groin/Body/Head/LeftEye")
-	var rightEye = get_node("Groin/Body/Head/RightEye")
-	leftEye.set_expression(eyeExpression)
-	#leftEye.set_iris_position(irisPos)
-	rightEye.set_expression(eyeExpression)
-	#rightEye.set_iris_position(Vector2(-irisPos.x,irisPos.y))
+export(enums.EyeTexture) onready var eyeExpression:int = enums.EyeTexture.Open setget set_eye_expression,get_eye_expression
+func set_eye_expression(expression:int):
+	eyeExpression = expression
+	get_node("Groin/Body/Head/LeftEye").set_expression(eyeExpression)
+	get_node("Groin/Body/Head/RightEye").set_expression(eyeExpression)
+func get_eye_expression():
+	return eyeExpression
+
+export(enums.MouthTexture) onready var mouthShape:int = enums.MouthTexture.Rest setget set_mouth_shape,get_mouth_shape
+func set_mouth_shape(shape:int):
+	mouthShape = shape
 	get_node("Groin/Body/Head/Mouth").set_mouth_shape(mouthShape)
-func get_emotion():
-	return emotion
+func get_mouth_shape():
+	return mouthShape
 
 func _ready():
-	#set_skin_color(skinColor)
-	#set_eye_color(eyeColor)
-	#set_emotion(emotion)
+	set_skin_color(skinColor)
+	set_eye_color(eyeColor)
+	set_eye_expression(eyeExpression)
+	set_mouth_shape(mouthShape)
 	get_node("Groin/Body/Head/RightEye").set_right_eye(true)
 
 func _process(delta):

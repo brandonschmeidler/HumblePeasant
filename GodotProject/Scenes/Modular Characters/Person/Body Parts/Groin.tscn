@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Images/Modular Characters/Person/GrSkin/Groin_White.png" type="Texture" id=1]
-
-
-[node name="Groin" type="Sprite"]
-texture = ExtResource( 1 )
